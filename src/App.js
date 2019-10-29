@@ -44,7 +44,13 @@ class App extends React.Component {
     });
   };
 
-  filterCompleted = () => { };
+  filterCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter(item =>
+        !item.completed)
+    });
+  }
+
 
   toggleCompleted = id => {
 
@@ -75,10 +81,14 @@ class App extends React.Component {
         <TodoList
           toggleCompleted={this.toggleCompleted}
           todos={this.state.todos}
+          clearCompleted={this.filterCompleted}
         />
       </div>
-    );
-  }
-}
+
+    )
+  };
+};
+
+
 
 export default App;
